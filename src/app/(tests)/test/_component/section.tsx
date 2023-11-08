@@ -14,7 +14,7 @@ const Testpages2 = ({ token }: { token: RequestCookie | undefined }) => {
     e.preventDefault();
     if (!token) return;
     try {
-      fetch("http://localhost:4000/api/login", {
+      fetch("process.env.NEXT_PUBLIC_API_HOST/api/login", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -31,7 +31,7 @@ const Testpages2 = ({ token }: { token: RequestCookie | undefined }) => {
     console.log(emailRef.current?.value, passwordRef.current?.value);
   }
   useEffect(() => {
-    fetch("http://localhost:4000/api/users", {
+    fetch("process.env.NEXT_PUBLIC_API_HOST/api/users", {
       headers: {
         authorization: "Bearer " + token?.value,
       },

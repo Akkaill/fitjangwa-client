@@ -12,7 +12,7 @@ const Wrapper = ({
   useEffect(() => {
     const setToken = useAuth.setState({ token: token });
   }, []);
-  return <div>{token}</div>;
+  return <div className="container">{token}</div>;
 };
 
 export default Wrapper;

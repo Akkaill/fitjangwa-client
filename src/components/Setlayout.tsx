@@ -7,11 +7,11 @@ import Footer from "./footer";
 export const Setlayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <Provider>
-      <div className="">
+      <div className="container">
         <Navbar />
         {children}
-        <Footer />
       </div>
+      <Footer />
     </Provider>
   );
 };

@@ -41,7 +41,7 @@ const Registerform = () => {
     },
   });
   async function HandleForm(data: z.infer<typeof formSchema>) {
-    const res = await fetch("http://localhost:4000/api/register", {
+    const res = await fetch("process.env.NEXT_PUBLIC_API_HOST/api/register", {
       method: "POST",
       headers: {
         "content-type": "application/json",

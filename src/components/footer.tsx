@@ -8,6 +8,13 @@ function Footer() {
           <p className="text-3xl text-white font-serif font-bold p-20">
             FITJANGWA
           </p>
+          <p className="text-xl text-white font-serif font-bold p-20">Line</p>
+          <p className="text-xl text-white font-serif font-bold p-20">
+            Facebook
+          </p>
+          <p className="text-xl text-white font-serif font-bold p-20">
+            Instagram
+          </p>
         </div>
         <div></div>
       </div>

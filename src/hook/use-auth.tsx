@@ -20,7 +20,7 @@ type AuthActions = {
   load: () => void;
 };
 async function login(email: string, password: string) {
-  const res = await fetch("http://localhost:4000/api/login", {
+  const res = await fetch("process.env.NEXT_PUBLIC_API_HOST/api/login", {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -35,7 +35,7 @@ async function login(email: string, password: string) {
   return data;
 }
 async function getuser(token: string) {
-  const res = await fetch("http://localhost:4000/api/users", {
+  const res = await fetch("process.env.NEXT_PUBLIC_API_HOST/api/users", {
     headers: {
       authorization: "Bearer " + token,
     },
@@ -65,12 +65,15 @@ const useAuth = create<AuthActions>((set) => ({
     set({ user: {} as Authstate, token: undefined });
   },
   verifyToken: async () => {
-    const res = await fetch("http://localhost:4000/api/verify-token", {
-      method: "POST",
-      headers: {
-        authorization: "Bearer " + cookies.get("token"),
-      },
-    });
+    const res = await fetch(
+      "process.env.NEXT_PUBLIC_API_HOST/api/verify-token",
+      {
+        method: "POST",
+        headers: {
+          authorization: "Bearer " + cookies.get("token"),
+        },
+      }
+    );
     if (res.status === 401) {
       cookies.remove("token");
       localStorage.removeItem("user");

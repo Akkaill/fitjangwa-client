@@ -1,5 +1,5 @@
 import { Herosection } from "@/components/Herosection";
-import Page from "@/app/(tests)/productpage/page";
+import Page from "@/app/(tests)/products/page";
 
 export default function Home() {
   return (

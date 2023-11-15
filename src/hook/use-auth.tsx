@@ -20,7 +20,7 @@ type AuthActions = {
   load: () => void;
 };
 async function login(email: string, password: string) {
-  const res = await fetch("process.env.NEXT_PUBLIC_API_HOST/api/login", {
+  const res = await fetch(process.env.NEXT_PUBLIC_API_HOST + "/api/login", {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -35,7 +35,7 @@ async function login(email: string, password: string) {
   return data;
 }
 async function getuser(token: string) {
-  const res = await fetch("process.env.NEXT_PUBLIC_API_HOST/api/users", {
+  const res = await fetch(process.env.NEXT_PUBLIC_API_HOST + "/api/users", {
     headers: {
       authorization: "Bearer " + token,
     },
@@ -66,7 +66,7 @@ const useAuth = create<AuthActions>((set) => ({
   },
   verifyToken: async () => {
     const res = await fetch(
-      "process.env.NEXT_PUBLIC_API_HOST/api/verify-token",
+      process.env.NEXT_PUBLIC_API_HOST + "/api/verify-token",
       {
         method: "POST",
         headers: {

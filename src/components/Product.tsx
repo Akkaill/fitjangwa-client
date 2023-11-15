@@ -45,16 +45,17 @@ function ProductPage({ product }: { product: Product }) {
         </CardTitle>
         <CardDescription>{product.desc}</CardDescription>
       </CardHeader>
-      <CardContent className="w-max h-40">
+      <CardContent className="w-max h-40 ">
         <Image
           src={product.images[0]}
           alt="pic"
-          width={250}
+          width={225}
           height={300}
-          style={{ objectFit: "contain" }}
+          style={{ objectFit: "cover" }}
+          className="bg-cover"
         ></Image>
       </CardContent>
-      <CardFooter className="p-20">
+      <CardFooter className="p-5">
         <Link href={`/products/${product.slug}`} className={buttonVariants()}>
           สนใจดูรายละเอียด
         </Link>

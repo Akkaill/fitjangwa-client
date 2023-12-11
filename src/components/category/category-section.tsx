@@ -23,14 +23,24 @@ export interface Product {
   category: Category[];
 }
 type Props = {
-  categories: Category[];
+  slug?: string;
   className?: string;
 };
-function CategorySection({ categories, className }: Props) {
+
+async function getAllcategory(): Promise<Category[]> {
+  const res = await fetch(process.env.NEXT_PUBLIC_API_HOST + "/api/category", {
+    cache: "no-cache",
+  });
+  const response = await res.json();
+
+  return response;
+}
+async function CategorySection({ slug, className }: Props) {
+  const categories = await getAllcategory();
   return (
     <div>
       <div className={cn(className)}>
-        <h2 className="text-xl py-4 font-semibold">Category's couses</h2>
+        <h2 className="text-xl py-4 font-semibold">Category's courses</h2>
         <div className="">
           {categories.map((e) => (
             <Link href={"/category/" + e.slug} key={e.id}>
